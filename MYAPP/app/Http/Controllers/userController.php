@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class userController extends Controller
+{
+    public function index()
+    {
+        return view('love');
+    }
+    public function admin($Roll){
+        return view('admin',['Number'=>$Roll]);
+    }
+    public function getUserName($name)
+    {
+        return "User name:$name";
+    }
+    public function action()
+    {
+        return view('love');
+    }
+    public function adduser(Request $request)
+    {
+        $request->validate([
+             'username'=> 'required | min:4 | max:10',
+             'Email'=>'required | email',
+            'city'=>'required | uppercase',
+            'user_image'=> 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
+         ],
+        [
+            'username.required'=>'Fuck up'//changing default required message
+            
+        ]);
+        $imagepath = $request->file('user_image')->store('uploads','public');
+
+    
+
+
+        echo $request->username;
+        echo '<br>';
+        echo $request->city;
+        echo '<br>';
+        echo $request->Email;
+    }
+    public function Gform(Request $req)
+    {
+        echo yyy;
+    }
+}
