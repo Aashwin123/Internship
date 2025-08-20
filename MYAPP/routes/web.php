@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\userController;
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
-Route::view('ttp','/ttp');
+Route::view('/ttp','user-form');
 
 Route::get('/love', function () {
     return view('love');
@@ -23,15 +23,18 @@ Route::get('/love', function () {
     
      Route::get('/',[userController::class,'index']);
     Route::get('/admin/','App\Http\Controllers\userController@admin');
+
     Route::get('user/{name}',[userController::class,'getUserName']);
+
+
 Route::view('/inner','common.inner');
 Route::get('/whatsapp/{Roll}',[userController::class,'admin']);
 
 
 Route::get('/pant',[userController::class,'action']);
-*/
+
 Route::view("user-form","user-form");
 Route::POST('adduser',[userController::class,'adduser']);
 
-Route::view('form','form');
+Route::get('form',[userController::class,'showform']);
 Route::post('Gform',[userController::class,'Gform']);

@@ -1,14 +1,15 @@
 <div>
-<form action="Gform" method"post">
+<form action="Gform" method="post">
+     @csrf
 <div>
     <h4>User skill</h4>
-     <input type="checkbox" name="skill" value="PHP" id="php"> 
+     <input type="checkbox" name="skill[]" value="PHP" id="php"> 
      <label for="php">PHP</label>
      
-     <input type="checkbox" name="skill" value="Node" id="node"> 
+     <input type="checkbox" name="skill[]" value="Node" id="node"> 
      <label for="node">Node</label>
      
-     <input type="checkbox" name="skill" value="java" id="java"> 
+     <input type="checkbox" name="skill[]" value="java" id="java"> 
      <label for="java">Java</label>
 </div>
 

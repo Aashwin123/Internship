@@ -1,8 +1,8 @@
-@extends('common.header')
+<!-- @extends('common.header') -->
 
 
 
-@section('footer')
+<!-- @section('footer')
  <footer>
     <div class="container">
       <div class="row">
@@ -15,4 +15,5 @@
     </div>
   </footer>
 
-@endsection
+@endsection -->
+<h2>I am love</h2>

@@ -30,10 +30,10 @@ class userController extends Controller
             'user_image'=> 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
          ],
         [
-            'username.required'=>'Fuck up'//changing default required message
+            'username.required'=>'Sorry , we donot beleive in anonomous person'//changing default required message
             
         ]);
-        $imagepath = $request->file('user_image')->store('uploads','public');
+        $imagepath = $request->file('user_image')->store('uploads','public');//for storing image
 
     
 
@@ -46,6 +46,16 @@ class userController extends Controller
     }
     public function Gform(Request $req)
     {
-        echo yyy;
+        $skills = $req->skill;
+        
+foreach ($skills as $skill) {
+    echo $skill . "<br>";}
+        echo $req->gender;
+        echo $req->city;
+}
+   
+
+ public function showform(){
+        return view('form');
     }
 }
