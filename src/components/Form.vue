@@ -33,6 +33,9 @@
           min="0"
           placeholder="Enter your age"
         />
+        <span v-if="!v$.age.required">Age is required</span>
+        <span v-if="!v$.age.numeric">Must be a number</span>
+        <span v-if="!v$.age.minValue">Minimum age is 18</span>
       </div>
 
       <button type="submit">Submit</button>
@@ -81,7 +84,7 @@
 // };
 
 import useVuelidate from "@vuelidate/core";
-import { required, minLength, numeric } from "@vuelidate/validators";
+import { required, minLength, numeric, minValue } from "@vuelidate/validators";
 
 export default {
   name: "Form",
@@ -102,14 +105,22 @@ export default {
       username: { required, minLength: minLength(3) },
       gender: { required },
       skills: { required },
-      age: { required, numeric },
+      age: { required, numeric,minVlaue:minValue(18) },//minimun 18 for validation
     };
   },
+  //  setup(props,{attrs,emit}){
+  //    const state = attrs;
+  //    const v$ = useVuelidate({},state);
+  //   return{v$: useVuelidate};
+  //  },
   methods: {
     submitForm() {
       this.v$.$touch(); // mark all fields as touched
       if (!this.v$.$invalid) {
         alert("Form submitted successfully ✅");
+      }
+      else{
+        console.log(this.v$);
       }
     },
   },
